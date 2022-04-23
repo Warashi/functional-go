@@ -4,8 +4,12 @@ import "github.com/Warashi/functional-go/monad"
 
 type Set[T comparable] map[T]struct{}
 
-func New[T comparable]() Set[T] {
-	return make(Set[T])
+func New[T comparable](values ...T) Set[T] {
+	s := make(Set[T], len(values))
+	for _, v := range values {
+		s[v] = struct{}{}
+	}
+	return s
 }
 
 func (s Set[T]) Add(v T) {
