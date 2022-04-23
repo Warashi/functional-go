@@ -1,4 +1,4 @@
-package set
+package sets
 
 import "github.com/Warashi/functional-go/monad"
 
