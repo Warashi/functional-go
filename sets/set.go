@@ -24,11 +24,11 @@ func (s Set[T]) Delete(v T) {
 	delete(s, v)
 }
 
-func Map[F, T comparable](from Set[F], f func(F) T) Set[T] {
-	return monad.Map[Set[T]](MonadImpl[F, T]{}, from, f)
+func Map[T, U comparable](from Set[T], f func(T) U) Set[U] {
+	return monad.Map[Set[U]](MonadImpl[T, U]{}, from, f)
 }
-func FlatMap[F, T comparable](from Set[F], f func(F) Set[T]) Set[T] {
-	return monad.FlatMap(MonadImpl[F, T]{}, from, f)
+func FlatMap[T, U comparable](from Set[T], f func(T) Set[U]) Set[U] {
+	return monad.FlatMap(MonadImpl[T, U]{}, from, f)
 }
 func Filter[T comparable](from Set[T], f func(T) bool) Set[T] {
 	return monad.Filter(MonadImpl[T, T]{}, from, f)
