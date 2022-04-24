@@ -15,7 +15,21 @@ func TestNew(t *testing.T) {
 		args args
 		want Set[T]
 	}{
-		// TODO: Add test cases.
+		{
+			name: "empty",
+			args: args{values: nil},
+			want: Set[T]{},
+		},
+		{
+			name: "single",
+			args: args{values: []T{1}},
+			want: Set[T]{1: struct{}{}},
+		},
+		{
+			name: "duplicated",
+			args: args{values: []T{1, 1}},
+			want: Set[T]{1: struct{}{}},
+		},
 	}
 	for _, tt := range tests {
 		tt := tt
