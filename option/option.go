@@ -6,6 +6,14 @@ type Option[T any] struct {
 	value *T
 }
 
+func Of[T any](v T) Option[T] {
+	return Option[T]{value: &v}
+}
+
+func OfNullable[T any](v *T) Option[T] {
+	return Option[T]{value: v}
+}
+
 func (o Option[T]) IsSome() bool { return o.value != nil }
 func (o Option[T]) IsNone() bool { return o.value == nil }
 func (o Option[T]) OrElse(v T) T {
