@@ -3,6 +3,7 @@ module github.com/Warashi/functional-go
 go 1.18
 
 require (
+	github.com/google/go-cmp v0.5.8
 	github.com/stretchr/testify v1.7.1
 	golang.org/x/exp v0.0.0-20220318154914-8dddf5d87bd8
 )
