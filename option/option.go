@@ -6,6 +6,10 @@ type Option[T any] struct {
 	value *T
 }
 
+func None[T any]() Option[T] {
+	return Option[T]{}
+}
+
 func Of[T any](v T) Option[T] {
 	return Option[T]{value: &v}
 }
